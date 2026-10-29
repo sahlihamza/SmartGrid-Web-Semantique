@@ -1,0 +1,10 @@
+node_modules
+dist
+dist-ssr
+*.local
+
+# Variables d'environnement (le .env reste versionné ici car il ne contient aucun secret,
+# mais .env.example documente la valeur attendue).
+.DS_Store
+.vscode/*
+!.vscode/extensions.json

@@ -1,0 +1,21 @@
+# Environnements et caches Python
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+
+# Dépendances et fichiers générés du frontend
+node_modules/
+dist/
+frontend-react/dist/
+
+# Configuration locale (le modèle est fourni dans .env.example)
+.env
+frontend-react/.env
+*.local
+
+# Fichiers système et IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

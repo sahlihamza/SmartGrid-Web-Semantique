@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:sg="http://www.StackMasters.tn/smartgrid#"
+>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#CentraleSolaireTozeur">
+    <sg:aPourPuissance rdf:datatype="http://www.w3.org/2001/XMLSchema#float">12.5</sg:aPourPuissance>
+    <rdf:type rdf:resource="http://www.StackMasters.tn/smartgrid#CentraleSolaire"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <sg:utiliseSource rdf:resource="http://www.StackMasters.tn/smartgrid#EnergieSolaireTunis"/>
+    <sg:alimente rdf:resource="http://www.StackMasters.tn/smartgrid#ReseauTunis"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#EnergieNucleaire">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.StackMasters.tn/smartgrid#EnergieNonRenouvelable"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#CompteurLinky_Maison12">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.StackMasters.tn/smartgrid#CompteurIntelligent"/>
+    <sg:mesure rdf:resource="http://www.StackMasters.tn/smartgrid#FamilleSahli"/>
+    <sg:estConnecteA rdf:resource="http://www.StackMasters.tn/smartgrid#ReseauTunis"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#aPourNiveauCharge">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.StackMasters.tn/smartgrid#Batterie"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#CentraleThermiqueGhoussa">
+    <sg:aPourPuissance rdf:datatype="http://www.w3.org/2001/XMLSchema#float">120.0</sg:aPourPuissance>
+    <rdf:type rdf:resource="http://www.StackMasters.tn/smartgrid#CentraleThermique"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <sg:utiliseSource rdf:resource="http://www.StackMasters.tn/smartgrid#EnergieFossileRades"/>
+    <sg:alimente rdf:resource="http://www.StackMasters.tn/smartgrid#ReseauTunis"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#EnergieHydrauliqueBarrage">
+    <rdf:type rdf:resource="http://www.StackMasters.tn/smartgrid#EnergieHydraulique"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#EolienneSidiDaoud">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.StackMasters.tn/smartgrid#CentraleEolienne"/>
+    <sg:utiliseSource rdf:resource="http://www.StackMasters.tn/smartgrid#EnergieEolienneBizerte"/>
+    <sg:alimente rdf:resource="http://www.StackMasters.tn/smartgrid#ReseauTunis"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#TransformateurHT1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.StackMasters.tn/smartgrid#Transformateur"/>
+    <sg:estConnecteA rdf:resource="http://www.StackMasters.tn/smartgrid#ReseauTunis"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#Capteur">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.StackMasters.tn/smartgrid#Equipement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#stocke">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.StackMasters.tn/smartgrid#Batterie"/>
+    <rdfs:range rdf:resource="http://www.StackMasters.tn/smartgrid#SourceEnergie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#OnduleurKairouan">
+    <rdf:type rdf:resource="http://www.StackMasters.tn/smartgrid#Onduleur"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <sg:estConnecteA rdf:resource="http://www.StackMasters.tn/smartgrid#ReseauKairouan"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne76f2b32def149ea8793a217aa13e23e">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.StackMasters.tn/smartgrid#utiliseSource"/>
+    <owl:allValuesFrom rdf:resource="http://www.StackMasters.tn/smartgrid#EnergieRenouvelable"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#BatterieTamponSousse">
+    <sg:aPourCapacite rdf:datatype="http://www.w3.org/2001/XMLSchema#float">20.0</sg:aPourCapacite>
+    <sg:aPourNiveauCharge rdf:datatype="http://www.w3.org/2001/XMLSchema#float">45.0</sg:aPourNiveauCharge>
+    <rdf:type rdf:resource="http://www.StackMasters.tn/smartgrid#Batterie"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <sg:stocke rdf:resource="http://www.StackMasters.tn/smartgrid#EnergieSolaireTunis"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N65cb805d309d4c5198cd1f826d893d43">
+    <rdf:first rdf:resource="http://www.StackMasters.tn/smartgrid#Producteur"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#CapteurTemperature1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.StackMasters.tn/smartgrid#Capteur"/>
+    <sg:estConnecteA rdf:resource="http://www.StackMasters.tn/smartgrid#ReseauTunis"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#EnergieSolaire">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.StackMasters.tn/smartgrid#EnergieRenouvelable"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#EnergieFossile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.StackMasters.tn/smartgrid#EnergieNonRenouvelable"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#Batterie">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.StackMasters.tn/smartgrid#SystemeStockage"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#CentraleThermiqueRades">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.StackMasters.tn/smartgrid#CentraleThermique"/>
+    <sg:utiliseSource rdf:resource="http://www.StackMasters.tn/smartgrid#EnergieFossileRades"/>
+    <sg:alimente rdf:resource="http://www.StackMasters.tn/smartgrid#ReseauTunis"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#SystemeStockage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.StackMasters.tn/smartgrid#Installation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#aPourPuissance">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.StackMasters.tn/smartgrid#Centrale"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#EnergieNonRenouvelable">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.StackMasters.tn/smartgrid#SourceEnergie"/>
+    <owl:disjointWith rdf:resource="http://www.StackMasters.tn/smartgrid#EnergieRenouvelable"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#aPourPuissanceConsommee">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.StackMasters.tn/smartgrid#Consommateur"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:label xml:lang="fr">Puissance consomm?e (MW)</rdfs:label>
+    <rdfs:comment xml:lang="fr">Valeurs illustratives de d?monstration, ? remplacer par des mesures r?elles.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#BatterieStockageRTE">
+    <sg:aPourCapacite rdf:datatype="http://www.w3.org/2001/XMLSchema#float">50.0</sg:aPourCapacite>
+    <sg:aPourNiveauCharge rdf:datatype="http://www.w3.org/2001/XMLSchema#float">78.5</sg:aPourNiveauCharge>
+    <rdf:type rdf:resource="http://www.StackMasters.tn/smartgrid#Batterie"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <sg:stocke rdf:resource="http://www.StackMasters.tn/smartgrid#EnergieSolaireTunis"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#CentraleNucleaire">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.StackMasters.tn/smartgrid#Centrale"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#BatterieTesla1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.StackMasters.tn/smartgrid#Batterie"/>
+    <sg:aPourCapacite rdf:datatype="http://www.w3.org/2001/XMLSchema#float">13.5</sg:aPourCapacite>
+    <sg:stocke rdf:resource="http://www.StackMasters.tn/smartgrid#EnergieSolaireTunis"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#CentraleSolaireKairouan">
+    <sg:aPourPuissance rdf:datatype="http://www.w3.org/2001/XMLSchema#float">8.0</sg:aPourPuissance>
+    <rdf:type rdf:resource="http://www.StackMasters.tn/smartgrid#CentraleSolaire"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <sg:utiliseSource rdf:resource="http://www.StackMasters.tn/smartgrid#EnergieSolaireTunis"/>
+    <sg:alimente rdf:resource="http://www.StackMasters.tn/smartgrid#ReseauKairouan"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#estConnecteA">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.StackMasters.tn/smartgrid#Equipement"/>
+    <rdfs:range rdf:resource="http://www.StackMasters.tn/smartgrid#ReseauElectrique"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#mesure">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.StackMasters.tn/smartgrid#CompteurIntelligent"/>
+    <rdfs:range rdf:resource="http://www.StackMasters.tn/smartgrid#Consommateur"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#ReseauKairouan">
+    <rdf:type rdf:resource="http://www.StackMasters.tn/smartgrid#ReseauIntelligent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#CentraleRenouvelable">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.StackMasters.tn/smartgrid#Centrale"/>
+    <rdfs:subClassOf rdf:nodeID="Ne76f2b32def149ea8793a217aa13e23e"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#FamilleSahli">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.StackMasters.tn/smartgrid#Consommateur"/>
+    <rdf:type rdf:resource="http://www.StackMasters.tn/smartgrid#Producteur"/>
+    <sg:consomme rdf:resource="http://www.StackMasters.tn/smartgrid#EnergieSolaireTunis"/>
+    <sg:produit rdf:resource="http://www.StackMasters.tn/smartgrid#EnergieSolaireTunis"/>
+    <sg:aPourPuissanceConsommee rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.02</sg:aPourPuissanceConsommee>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#Prosommateur">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:equivalentClass rdf:nodeID="N2e508a9ef55746ab99b4f0deb285d2a3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#CentraleEolienneBizerte">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.StackMasters.tn/smartgrid#CentraleEolienne"/>
+    <sg:utiliseSource rdf:resource="http://www.StackMasters.tn/smartgrid#EnergieEolienneBizerte"/>
+    <sg:alimente rdf:resource="http://www.StackMasters.tn/smartgrid#ReseauTunis"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#ConsommateurUsineTextile">
+    <rdf:type rdf:resource="http://www.StackMasters.tn/smartgrid#Consommateur"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <sg:consomme rdf:resource="http://www.StackMasters.tn/smartgrid#EnergieSolaireTunis"/>
+    <sg:aPourPuissanceConsommee rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4.5</sg:aPourPuissanceConsommee>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#STEG">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.StackMasters.tn/smartgrid#GestionnaireReseau"/>
+    <sg:gere rdf:resource="http://www.StackMasters.tn/smartgrid#ReseauTunis"/>
+    <sg:gere rdf:resource="http://www.StackMasters.tn/smartgrid#ReseauKairouan"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#CentraleSolaireGabes">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.StackMasters.tn/smartgrid#CentraleSolaire"/>
+    <sg:utiliseSource rdf:resource="http://www.StackMasters.tn/smartgrid#EnergieSolaireTunis"/>
+    <sg:alimente rdf:resource="http://www.StackMasters.tn/smartgrid#ReseauTunis"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#aPourCapacite">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.StackMasters.tn/smartgrid#Batterie"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#utiliseSource">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.StackMasters.tn/smartgrid#Centrale"/>
+    <rdfs:range rdf:resource="http://www.StackMasters.tn/smartgrid#SourceEnergie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#Transformateur">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.StackMasters.tn/smartgrid#Equipement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#Onduleur">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.StackMasters.tn/smartgrid#Equipement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#ProsommateurBenYedder">
+    <rdf:type rdf:resource="http://www.StackMasters.tn/smartgrid#Consommateur"/>
+    <rdf:type rdf:resource="http://www.StackMasters.tn/smartgrid#Producteur"/>
+    <rdf:type rdf:resource="http://www.StackMasters.tn/smartgrid#Prosommateur"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <sg:consomme rdf:resource="http://www.StackMasters.tn/smartgrid#EnergieSolaireTunis"/>
+    <sg:produit rdf:resource="http://www.StackMasters.tn/smartgrid#EnergieSolaireTunis"/>
+    <sg:aPourPuissanceConsommee rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.015</sg:aPourPuissanceConsommee>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#ReseauSfax">
+    <rdf:type rdf:resource="http://www.StackMasters.tn/smartgrid#ReseauIntelligent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#CompteurLinky_Maison34">
+    <sg:aPourDateReleve rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-20T08:00:00</sg:aPourDateReleve>
+    <rdf:type rdf:resource="http://www.StackMasters.tn/smartgrid#CompteurIntelligent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <sg:mesure rdf:resource="http://www.StackMasters.tn/smartgrid#ConsommateurUsineTextile"/>
+    <sg:estConnecteA rdf:resource="http://www.StackMasters.tn/smartgrid#ReseauTunis"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#ReseauElectrique">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#CentraleEolienneElAous">
+    <sg:aPourPuissance rdf:datatype="http://www.w3.org/2001/XMLSchema#float">36.0</sg:aPourPuissance>
+    <rdf:type rdf:resource="http://www.StackMasters.tn/smartgrid#CentraleEolienne"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <sg:utiliseSource rdf:resource="http://www.StackMasters.tn/smartgrid#EnergieEolienneBizerte"/>
+    <sg:alimente rdf:resource="http://www.StackMasters.tn/smartgrid#ReseauTunis"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#CompteurIntelligent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.StackMasters.tn/smartgrid#Equipement"/>
+    <rdfs:subClassOf rdf:nodeID="N1b65a2541bf142cb8964ebd304aaf1cf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#EnergieHydraulique">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.StackMasters.tn/smartgrid#EnergieRenouvelable"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#EnergieFossileRades">
+    <rdf:type rdf:resource="http://www.StackMasters.tn/smartgrid#EnergieFossile"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#Acteur">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#SourceEnergie">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#produit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.StackMasters.tn/smartgrid#Producteur"/>
+    <rdfs:range rdf:resource="http://www.StackMasters.tn/smartgrid#SourceEnergie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#gere">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.StackMasters.tn/smartgrid#GestionnaireReseau"/>
+    <rdfs:range rdf:resource="http://www.StackMasters.tn/smartgrid#ReseauIntelligent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#ReseauIntelligent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.StackMasters.tn/smartgrid#ReseauElectrique"/>
+    <rdfs:subClassOf rdf:nodeID="N7d326bed86c046ad89bb21951e76f0cb"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#Installation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#TransformateurBT3">
+    <rdf:type rdf:resource="http://www.StackMasters.tn/smartgrid#Transformateur"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <sg:estConnecteA rdf:resource="http://www.StackMasters.tn/smartgrid#ReseauTunis"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#EnergieEolienneBizerte">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.StackMasters.tn/smartgrid#EnergieEolienne"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#CapteurPuissanceRTE">
+    <rdf:type rdf:resource="http://www.StackMasters.tn/smartgrid#Capteur"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <sg:estConnecteA rdf:resource="http://www.StackMasters.tn/smartgrid#ReseauTunis"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#CentraleThermique">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.StackMasters.tn/smartgrid#Centrale"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N7d326bed86c046ad89bb21951e76f0cb">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.StackMasters.tn/smartgrid#estConnecteA"/>
+    <owl:someValuesFrom rdf:resource="http://www.StackMasters.tn/smartgrid#CompteurIntelligent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#Batterie2">
+    <sg:stocke rdf:resource="http://www.StackMasters.tn/smartgrid#EnergieSolaireTunis"/>
+    <rdf:type rdf:resource="http://www.StackMasters.tn/smartgrid#Batterie"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#aPourNom">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.StackMasters.tn/smartgrid#Acteur"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#EnergieEolienne">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.StackMasters.tn/smartgrid#EnergieRenouvelable"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#Sonelec">
+    <rdf:type rdf:resource="http://www.StackMasters.tn/smartgrid#GestionnaireReseau"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <sg:gere rdf:resource="http://www.StackMasters.tn/smartgrid#ReseauSfax"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#aPourDateReleve">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.StackMasters.tn/smartgrid#CompteurIntelligent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#ReseauTunis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.StackMasters.tn/smartgrid#ReseauIntelligent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#Consommateur">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.StackMasters.tn/smartgrid#Acteur"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#ProducteurAgricoleSfax">
+    <rdf:type rdf:resource="http://www.StackMasters.tn/smartgrid#Producteur"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <sg:produit rdf:resource="http://www.StackMasters.tn/smartgrid#EnergieSolaireTunis"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#CentraleSolaire">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.StackMasters.tn/smartgrid#Centrale"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#Equipement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#consomme">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.StackMasters.tn/smartgrid#Consommateur"/>
+    <rdfs:range rdf:resource="http://www.StackMasters.tn/smartgrid#SourceEnergie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#CentraleEolienne">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.StackMasters.tn/smartgrid#Centrale"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#EnergieSolaireTunis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.StackMasters.tn/smartgrid#EnergieSolaire"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#GestionnaireReseau">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.StackMasters.tn/smartgrid#Acteur"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#alimente">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.StackMasters.tn/smartgrid#Centrale"/>
+    <rdfs:range rdf:resource="http://www.StackMasters.tn/smartgrid#ReseauElectrique"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1b65a2541bf142cb8964ebd304aaf1cf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.StackMasters.tn/smartgrid#mesure"/>
+    <owl:someValuesFrom rdf:resource="http://www.StackMasters.tn/smartgrid#Consommateur"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N81ee84f5fbbc4534840b97b576e8c38a">
+    <rdf:first rdf:resource="http://www.StackMasters.tn/smartgrid#Consommateur"/>
+    <rdf:rest rdf:nodeID="N65cb805d309d4c5198cd1f826d893d43"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#Centrale">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.StackMasters.tn/smartgrid#Installation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#EnergieRenouvelable">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.StackMasters.tn/smartgrid#SourceEnergie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.StackMasters.tn/smartgrid#Producteur">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.StackMasters.tn/smartgrid#Acteur"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2e508a9ef55746ab99b4f0deb285d2a3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="N81ee84f5fbbc4534840b97b576e8c38a"/>
+  </rdf:Description>
+</rdf:RDF>
