@@ -10,6 +10,7 @@ from flask import Flask, jsonify, request, Response
 from flask_cors import CORS
 from rdflib import Graph, Literal, OWL, RDF, RDFS, URIRef, XSD
 
+import explain
 import nlp
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -406,9 +407,118 @@ def ask():
     return jsonify({"sparql": query, "result": result})
 
 
+def individual_facts(name):
+    """Types, valeurs et relations (sortantes et entrantes) d'un individu."""
+    node = iri(name)
+    types, values, relations = [], [], []
+    for row in sparql_query(f"SELECT ?p ?o WHERE {{ {node} ?p ?o }}"):
+        prop = local(row.p)
+        if prop == "type":
+            if str(row.o).startswith(NS):
+                types.append(local(row.o))
+        elif str(row.o).startswith(NS):
+            relations.append((prop, local(row.o)))
+        else:
+            values.append((prop, str(row.o)))
+    incoming = [
+        (local(row.s), local(row.p))
+        for row in sparql_query(f"SELECT ?s ?p WHERE {{ ?s ?p {node} }}")
+        if str(row.s).startswith(NS)
+    ]
+    return {"name": name, "types": sorted(set(types)), "values": values,
+            "relations": relations, "incoming": incoming}
+
+
+def network_facts():
+    """Chiffres clés du réseau : répartition, production, consommation, stockage."""
+    def numbers(query):
+        found = {}
+        for subject, value in execute_query(query)["rows"]:
+            try:
+                found[subject] = float(value)
+            except (TypeError, ValueError):
+                continue
+        return sorted(found.items())
+
+    def of_class(class_name, variable="?s"):
+        return f"{variable} a ?t . ?t rdfs:subClassOf* {iri(class_name)} ."
+
+    counts = execute_query(
+        "SELECT ?t (COUNT(DISTINCT ?i) AS ?n) WHERE { ?i a ?t . "
+        f'FILTER(STRSTARTS(STR(?t), "{NS}") && STRSTARTS(STR(?i), "{NS}")) '
+        "} GROUP BY ?t ORDER BY DESC(?n) ?t")["rows"]
+    individuals = execute_query(
+        "SELECT DISTINCT ?i WHERE { ?i a ?t . "
+        f'FILTER(STRSTARTS(STR(?t), "{NS}") && STRSTARTS(STR(?i), "{NS}")) }}')["rows"]
+
+    batteries = {}
+    for subject, capacity, level in execute_query(
+            f"SELECT ?s ?c ?l WHERE {{ {of_class('Batterie')} "
+            f"OPTIONAL {{ ?s {iri('aPourCapacite')} ?c }} "
+            f"OPTIONAL {{ ?s {iri('aPourNiveauCharge')} ?l }} }}")["rows"]:
+        batteries[subject] = (
+            subject,
+            float(capacity) if capacity is not None else None,
+            float(level) if level is not None else None,
+        )
+
+    networks = {}
+    for network, manager, feeder in execute_query(
+            "SELECT ?r ?m ?c WHERE { VALUES ?root "
+            f"{{ {iri('ReseauElectrique')} {iri('ReseauIntelligent')} }} "
+            "?r a ?t . ?t rdfs:subClassOf* ?root . "
+            f"OPTIONAL {{ ?m {iri('gere')} ?r }} "
+            f"OPTIONAL {{ ?c {iri('alimente')} ?r }} }}")["rows"]:
+        entry = networks.setdefault(network, (network, set(), set()))
+        if manager:
+            entry[1].add(manager)
+        if feeder:
+            entry[2].add(feeder)
+
+    return {
+        "total": len(individuals),
+        "classes": [(name, int(count)) for name, count in counts],
+        "plants": numbers(
+            f"SELECT ?s ?v WHERE {{ {of_class('Centrale')} ?s {iri('aPourPuissance')} ?v }}"),
+        "consumers": numbers(
+            f"SELECT ?s ?v WHERE {{ ?s {iri('aPourPuissanceConsommee')} ?v }}"),
+        "batteries": sorted(batteries.values()),
+        "networks": [(name, sorted(m), sorted(f)) for name, m, f in sorted(networks.values())],
+    }
+
+
+@app.get("/api/summary")
+def network_summary():
+    """Résumé en français de l'état du réseau (LLM, avec repli local)."""
+    try:
+        with GRAPH_LOCK:
+            facts = network_facts()
+    except Exception as exc:
+        if app.debug:
+            traceback.print_exc()
+        return err(f"résumé impossible : {exc}", 500)
+    return jsonify(explain.generate(
+        explain.SUMMARY_INSTRUCTION,
+        explain.summary_facts_text(facts),
+        explain.summary_fallback(facts)))
+
+
+@app.get("/api/individuals/<name>/explain")
+def explain_individual(name):
+    """Explication en français d'un individu à partir de ses triplets."""
+    if not valid(name) or not exists(name):
+        return err("individu introuvable", 404)
+    with GRAPH_LOCK:
+        facts = individual_facts(name)
+    return jsonify(explain.generate(
+        explain.INDIVIDUAL_INSTRUCTION,
+        explain.individual_facts_text(facts),
+        explain.individual_fallback(facts)))
+
+
 @app.get("/api/health")
 def health():
-    return jsonify({"triples": len(g), "namespace": NS})
+    return jsonify({"triples": len(g), "namespace": NS, "llm": explain.llm_configured()})
 
 
 if __name__ == "__main__":

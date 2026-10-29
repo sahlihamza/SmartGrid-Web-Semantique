@@ -111,6 +111,12 @@ export const api = {
   /** POST /ask -> { sparql, result } (module NLP/TALN : question -> requête SPARQL). */
   ask: (question) => request('/ask', { method: 'POST', body: { question } }),
 
+  /** GET /summary -> { text, source } : résumé en français de l'état du réseau. */
+  summary: () => request('/summary'),
+
+  /** GET /individuals/<name>/explain -> { text, source } */
+  explainIndividual: (name) => request(`/individuals/${encodeURIComponent(name)}/explain`),
+
   /** Import CSV (colonnes name, type, puis noms de propriétés). */
   importCsv: async (file) => {
     const form = new FormData()

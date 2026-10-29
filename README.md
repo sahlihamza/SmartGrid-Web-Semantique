@@ -25,6 +25,15 @@ Sous macOS ou Linux, activez l'environnement avec `source .venv/bin/activate`.
 
 L'API démarre sur `http://localhost:5000`. L'ontologie est chargée automatiquement depuis `data/smartgrid.owl`. L'installation du modèle spaCy français active l'assistant en langage naturel. Pour quitter le serveur, utilisez `Ctrl+C`.
 
+### Explications en français (IA)
+
+Le tableau de bord (résumé du réseau) et la fiche d'un individu produisent des textes en français à partir de faits extraits de l'ontologie (`backend/explain.py`).
+
+- Avec une clé d'API : copiez `backend/.env.example` en `backend/.env` et renseignez `GROQ_API_KEY` (ou `ANTHROPIC_API_KEY`). Les textes sont rédigés par un LLM, qui ne reçoit que les faits extraits.
+- Sans clé, ou si l'appel échoue : un texte de repli est construit localement. L'interface indique toujours la source (« Généré par IA » ou « Généré localement »).
+
+Routes : `GET /api/summary` et `GET /api/individuals/<name>/explain`. L'assistant reste purement NLP (spaCy + règles), sans LLM.
+
 ## Lancer le frontend
 
 Dans un second terminal, depuis la racine du projet :

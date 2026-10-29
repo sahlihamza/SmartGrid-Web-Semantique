@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft, ExternalLink, Pencil, Trash2 } from 'lucide-react'
 
 import { api } from '../api/client.js'
+import { AiExplanation } from '../components/AiExplanation.jsx'
 import { Badge, ClassBadge } from '../components/Badge.jsx'
 import { Button, IconButton } from '../components/Button.jsx'
 import { ConfirmDialog } from '../components/ConfirmDialog.jsx'
@@ -161,6 +162,14 @@ export default function IndividuDetail() {
           </div>
         </div>
       </header>
+
+      <AiExplanation
+        title="Explication de la fiche"
+        description="Description en français de cet individu, à partir de ses propriétés et de ses relations."
+        buttonLabel="Expliquer cette fiche"
+        load={() => api.explainIndividual(name)}
+        resetKey={name}
+      />
 
       {/* Propriétés */}
       <section className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm shadow-slate-900/5 dark:border-slate-800 dark:bg-slate-900 dark:shadow-black/20">

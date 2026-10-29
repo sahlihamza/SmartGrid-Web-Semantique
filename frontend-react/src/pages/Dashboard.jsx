@@ -15,6 +15,7 @@ import {
 import { Activity, ArrowDownRight, ArrowUpRight, Boxes, Database, Gauge, Layers, Sun } from 'lucide-react'
 
 import { api } from '../api/client.js'
+import { AiExplanation } from '../components/AiExplanation.jsx'
 import { Badge, ClassBadge } from '../components/Badge.jsx'
 import { EmptyState } from '../components/EmptyState.jsx'
 import { ErrorBanner } from '../components/ErrorBanner.jsx'
@@ -263,6 +264,14 @@ export default function Dashboard() {
     <div className="space-y-6">
       {error && <ErrorBanner message={error} onRetry={reload} />}
       {ontologyError && <ErrorBanner message={ontologyError} onRetry={reload} />}
+
+      <AiExplanation
+        title="Résumé du réseau"
+        description="Synthèse en français de l’état de l’ontologie, rédigée à partir des données du graphe."
+        buttonLabel="Générer le résumé"
+        load={api.summary}
+        autoLoad
+      />
 
       {/* Cartes de statistiques */}
       {loadingCards ? (
